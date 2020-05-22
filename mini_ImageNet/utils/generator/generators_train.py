@@ -5,7 +5,21 @@ This code based on codes from https://github.com/tristandeleu/ntm-one-shot \
 import numpy as np
 import random
 import pickle as pkl
+import subprocess
+import zipfile
 
+def extract(filename):
+    zipFile_ = '../../../miniImageNet.zip'
+    subprocess.call(['mkdir', '../data/miniImageNet'])
+    dest = '../data/miniImageNet'
+    archive = zipfile.ZipFile(zipFile_)
+    for file in archive.namelist():
+        if file.startswith(filename.split('/')[-1]):
+            archive.extract(file, dest)
+
+def remove(filename):
+    filepath = '../data/miniImageNet/' + filename.split('/')[-1]
+    subprocess.call(['rm', filepath])
 class miniImageNetGenerator(object):
 
     def __init__(self, data_file, nb_classes=5, nb_samples_per_class=10,
@@ -29,8 +43,10 @@ class miniImageNetGenerator(object):
 
     def load_data(self, data_file):
         try:
+            extract(data_file)
             with open(data_file, 'rb') as fo:
                 data = pkl.load(fo)
+                remove(data_file)
             return data
         except:
             with open(data_file, 'rb') as f:
