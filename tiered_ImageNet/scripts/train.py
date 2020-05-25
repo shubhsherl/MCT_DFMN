@@ -74,7 +74,7 @@ if __name__ == '__main__':
 
     # You can download dataset from https://drive.google.com/file/d/1nVGCTd9ttULRXFezh4xILQ9lUkg0WZCG/view
     #data path
-    data_path = '/data/tieredImageNet'
+    data_path = '../data/tieredImageNet'
     train_path = data_path + '/train_images.npz'
     val_path = data_path + '/val_images.npz'
     test_path = data_path + '/test_images.npz'
