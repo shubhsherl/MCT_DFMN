@@ -77,7 +77,7 @@ if __name__ == '__main__':
 
     # You can download dataset from https://drive.google.com/file/d/1fJAK5WZTjerW7EWHHQAR9pRJVNg1T1Y7/view
     #data path
-    data_path = '/data/miniImageNet'
+    data_path = '../data/miniImageNet'
     train_path = data_path + '/miniImageNet_category_split_train_phase_train.pickle'
     val_path = data_path + '/miniImageNet_category_split_val.pickle'
     test_path = data_path + '/miniImageNet_category_split_test.pickle'
