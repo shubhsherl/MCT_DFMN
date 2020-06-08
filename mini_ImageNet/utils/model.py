@@ -147,6 +147,9 @@ class Runner(object):
 
         nb_class = self.nb_class_train
         images = self.make_input(images)
+        print("labels")
+        print(images.size())
+        print(labels)
         labels_DC = torch.tensor(labels, dtype=torch.long).cuda()
         flipped_key = self.flip_key(images) if self.flip else None
 
